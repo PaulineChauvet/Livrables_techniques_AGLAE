@@ -1,0 +1,235 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>DEPEND</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>INSTITUTION</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>nom</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>adresse</span>,
+    <span class='normal'>nationalité</span>
+  )
+</div>
+<div>
+  <span class='relation'>INSTRUMENT</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>label</span>,
+    <span class='normal'>référence</span>,
+    <span class='normal'>type de ligne</span>,
+    <span class='normal'>faisceau extrait</span>
+  )
+</div>
+<div>
+  <span class='relation'>LOGICIEL</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>nom</span>,
+    <span class='normal'>auteur (ou propriété institutionnelle)</span>,
+    <span class='normal'>licence</span>,
+    <span class='normal'>coût</span>,
+    <span class='normal'>version utilisée</span>,
+    <span class='normal'>OS</span>
+  )
+</div>
+<div>
+  <span class='relation'>GROUPE DE RECHERCHE</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>nom</span>,
+    <span class='normal'>référence</span>
+  )
+</div>
+<div>
+  <span class='relation'>EST AFFILIE A</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>DETECTEUR</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>label</span>,
+    <span class='normal'>référence</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>
+  )
+</div>
+<div>
+  <span class='relation'>FICHIER</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>nom</span>,
+    <span class='normal'>format</span>,
+    <span class='normal'>taille</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>,
+    <span class='foreign'>id.3</span>
+  )
+</div>
+<div>
+  <span class='relation'>FAIT PARTIE DE</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>INDIVIDU</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>nom</span>,
+    <span class='normal'>prénom</span>,
+    <span class='normal'>profession</span>
+  )
+</div>
+<div>
+  <span class='relation'>EST RESPONSABLE</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>EXPERIENCE (RUN)</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>label</span>,
+    <span class='normal'>date</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>
+  )
+</div>
+<div>
+  <span class='relation'>EST UTILISÉE</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>TECHNIQUE D'ANALYSE</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>label</span>,
+    <span class='normal'>filtre (PIXE)</span>,
+    <span class='normal'>durée</span>
+  )
+</div>
+<div>
+  <span class='relation'>SPECTRE</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>somme (taux de comptage)</span>,
+    <span class='normal'>dimension (Map size)</span>,
+    <span class='normal'>résolution (Pixel size)</span>,
+    <span class='normal'>vitesse de déplacement de l'échantillon</span>,
+    <span class='normal'>facteur de calibrage</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>
+  )
+</div>
+<div>
+  <span class='relation'>FORMULAIRE</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>numéro</span>,
+    <span class='normal'>type (OSCAR</span>,
+    <span class='normal'>Proposal)</span>
+  )
+</div>
+<div>
+  <span class='relation'>PERMET</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>CONTEXTE EXPERIMENTAL</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>énergie</span>,
+    <span class='normal'>type de particule</span>
+  )
+</div>
+<div>
+  <span class='relation'>EST APPLIQUÉE</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>ZONE D'INTÉRET</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>dimension</span>
+  )
+</div>
+<div>
+  <span class='relation'>POINT DE MESURE</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>DOSE</span>,
+    <span class='normal'>taille du pinceau</span>,
+    <span class='normal'>temps d’acquisition</span>,
+    <span class='normal'>durée</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>,
+    <span class='foreign'>id.3</span>
+  )
+</div>
+<div>
+  <span class='relation'>CARTOGRAPHIE</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>dimension</span>,
+    <span class='foreign'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>DEMANDE DE TEMPS DE FAISCEAU</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>N° de demande</span>,
+    <span class='normal'>question posée</span>,
+    <span class='foreign'>id.1</span>,
+    <span class='foreign'>id.2</span>
+  )
+</div>
+<div>
+  <span class='relation'>CONCERNE</span> (
+    <span class='foreign primary'>id</span>,
+    <span class='foreign primary'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>OBJET</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>N° d'inventaire</span>,
+    <span class='normal'>label</span>,
+    <span class='normal'>collection</span>,
+    <span class='normal'>hauteur</span>,
+    <span class='normal'>largeur</span>,
+    <span class='normal'>épaisseur</span>,
+    <span class='normal'>lieu de trouvaille</span>,
+    <span class='normal'>époque avérée ou supposée</span>,
+    <span class='normal'>description</span>
+  )
+</div>
+<div>
+  <span class='relation'>MATERIAU</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>nature</span>,
+    <span class='normal'>largeur</span>,
+    <span class='normal'>longueur</span>,
+    <span class='normal'>épaisseur</span>,
+    <span class='foreign'>id.1</span>
+  )
+</div>
+<div>
+  <span class='relation'>STANDARD</span> (
+    <span class='primary'>id</span>,
+    <span class='normal'>label</span>
+  )
+</div>
+</div>
+</body>
+</html>

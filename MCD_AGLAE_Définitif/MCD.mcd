@@ -1,0 +1,51 @@
+DEPEND, 1N INSTITUTION, 0N GROUPE DE RECHERCHE
+INSTITUTION: id, nom, type, adresse, nationalité
+:
+INSTRUMENT: id, label, référence, type de ligne, faisceau extrait
+EST RELIE, 11 DETECTEUR, 1N INSTRUMENT
+LOGICIEL: id, nom, auteur (ou propriété institutionnelle), licence, coût, version utilisée, OS
+TRAITE, 11 FICHIER, 1N LOGICIEL
+:
+
+GROUPE DE RECHERCHE: id, nom, référence
+EST AFFILIE A, 1N INSTITUTION, 0N INDIVIDU
+:
+RÉALISE, 11 EXPERIENCE (RUN), 1N INSTRUMENT
+DETECTEUR: id, label, référence
+DÉPEND, 1N TECHNIQUE D'ANALYSE, 11 DETECTEUR
+FICHIER: id, nom, format, taille
+CONTIENT, 0N FICHIER, 11 SPECTRE
+
+FAIT PARTIE DE, 0N INDIVIDU, 1N GROUPE DE RECHERCHE
+INDIVIDU: id, nom, prénom, profession
+EST RESPONSABLE, 1N EXPERIENCE (RUN), 0N INDIVIDU
+EXPERIENCE (RUN): id, label, date
+EST UTILISÉE, 1N EXPERIENCE (RUN), 1N TECHNIQUE D'ANALYSE
+TECHNIQUE D'ANALYSE: id, label, filtre (PIXE), durée
+GÉNÈRE, 01 FICHIER, 1N POINT DE MESURE, 1N CARTOGRAPHIE
+SPECTRE: id, somme (taux de comptage), dimension (Map size), résolution (Pixel size), vitesse de déplacement de l'échantillon, facteur de calibrage
+
+FORMULAIRE: id, numéro, type (OSCAR, Proposal)
+SOUMET, 11 DEMANDE DE TEMPS DE FAISCEAU, 0N INDIVIDU
+PERMET, 1N DEMANDE DE TEMPS DE FAISCEAU, 0N EXPERIENCE (RUN)
+RENVOIE A, 11 EXPERIENCE (RUN), 11 CONTEXTE EXPERIMENTAL
+CONTEXTE EXPERIMENTAL: id, énergie, type de particule
+EST APPLIQUÉE, 1N TECHNIQUE D'ANALYSE, 1N ZONE D'INTÉRET
+ZONE D'INTÉRET: id, dimension
+ENGENDRE, 11 POINT DE MESURE, 0N ZONE D'INTÉRET
+POINT DE MESURE: id, DOSE, taille du pinceau, temps d’acquisition, durée
+REPRESENTE, 11 SPECTRE, 11 POINT DE MESURE
+
+CARTOGRAPHIE: id, dimension
+PRODUIT, 11 CARTOGRAPHIE, 0N ZONE D'INTÉRET
+
+EST EFFECTUÉE PAR, 11 DEMANDE DE TEMPS DE FAISCEAU, 11 FORMULAIRE
+DEMANDE DE TEMPS DE FAISCEAU: id, N° de demande, question posée
+CONCERNE, 1N DEMANDE DE TEMPS DE FAISCEAU, 1N OBJET
+OBJET:  id, N° d'inventaire, label, collection, hauteur, largeur, épaisseur, lieu de trouvaille, époque avérée ou supposée, description
+COMPOSE, 1N OBJET, 11 MATERIAU
+MATERIAU: id, nature, largeur, longueur, épaisseur
+EST EFFECTUE SUR/DEPEND3, 11 POINT DE MESURE, 1N STANDARD
+STANDARD: id, label
+
+EST PRATIQUE SUR, 1N MATERIAU, 11 POINT DE MESURE
