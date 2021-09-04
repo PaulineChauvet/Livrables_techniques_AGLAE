@@ -17,8 +17,8 @@ Ce dépôt contient ainsi les livrables techniques suivants:
 
 3. Un modèle conceptuel et sa traduction en modèle relationnel pour un jeu de données expérimentales en vue d’une implémentation dans Euphrosyne. 
 
-4. Un modèle d’archivage des données d’ AGLAE en conformité avec la méthodologie OAIS.
+4. Un modèle d’archivage des données d’AGLAE en conformité avec la norme OAIS.
 
-5. Un modèle en graphe construit à partir des référentiels retenus et de leur organisation en vue d’une introduction dans le web sémantique. 
+5. Un modèle en graphe construit à partir du référentiel retenu pour l'analyse par faisceau d'ions réalisée lors d'une expérience AGLAE.
 
 
